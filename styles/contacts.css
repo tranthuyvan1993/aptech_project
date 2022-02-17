@@ -1,0 +1,195 @@
+* {box-sizing: border-box;}
+html, body {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+@font-face {
+    font-family: Comfortaa;
+    src: url(../fonts/Comfortaa.ttf);
+}
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/Montserrat.ttf);
+}
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto.ttf);
+}
+.primary-color__text {color: #F4B183;}
+.secondary-color__text {color: #767171;}
+.neutral-color__text {color: #333333}
+.acrylic {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-blend-mode: exclusion;
+    background: rgba(255, 255, 255, .2);
+}
+.rounded-corner__2px {border-radius: 2px;}
+.rounded-corner__5px {border-radius: 5px;}
+.header-area {border-bottom: 1px solid #e6e6e6;}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    min-height: 54px;
+}
+.navbar a {text-decoration: none;}
+.navbar__logo {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    align-items: center;
+}
+.navbar__logo img {
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+}
+.navbar__logo::after {
+    border-right: 2px solid #333333;
+    content: "";
+    display: inline-block;
+    height: 1.5rem;
+    margin-right: .5rem;
+    margin-left: 1rem;
+}
+.navbar__title {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 24px;
+}
+.navbar__link-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.navbar__link {
+    min-width: 128px;
+    margin-right: 24px;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    color: #333333;
+    transition: 0.5s;
+}
+.navbar__link:hover {
+    background-color: #F4B183;
+    color: #333333;
+}
+.navbar__link--is-active {
+    color: #F4B183;
+    border-bottom: 2px solid #F4B183;
+}
+.main-contact-section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 52px;
+    align-items: center;
+}
+.contact-info-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 100%;
+}
+.contact-info-area__logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.contact-info-area__logo-container img {
+    width: 256px;
+    object-fit: contain;
+}
+.contact-info-area__logo-title {
+    margin-top: 10px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 32px;
+}
+.contact-info-area__info-container {
+    padding: 10px;
+    margin: 24px;
+    
+}
+.contact-info-area__info-container address {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-style: normal;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+}
+.contact-info-area__info-container address div {
+    margin-top: 10px;
+    padding: 10px;
+}
+.contact-info-area__info-container address div a {
+    padding: 10px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.contact-info-area__info-container address div a:hover {
+    background-color: #F4B183;
+}
+.gmaps-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 75vh;
+}
+.gmaps {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border: 1px solid #e6e6e6;
+}
+@media screen and (max-width: 900px) {
+    html {
+        width: 100vw;
+    }
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .navbar__logo::after {opacity: 0;}
+    .navbar__link {
+        min-width: 25vw;
+        font-size: 3vw;
+    }
+    .main-contact-section {
+        width: 100vw;
+        flex-direction: column;
+        padding: 3vw;
+    }
+    .contact-info-area {
+        width: 100%;
+    }
+    .contact-info-area__info-container {
+        padding: 0;
+        margin: 0;
+    }
+    .contact-info-area__info-container address {
+        width: 100vw;
+        font-size: 3vw;
+    }
+    .gmaps-area {
+        width: 100%;
+    }
+}

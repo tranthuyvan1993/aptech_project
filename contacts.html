@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
+    <script type="text/javascript" src="scripts/contacts.js"></script>
+    <title>Gracious Garments</title>
+</head>
+<body>
+    <div id="header" class="header-area"> <!--header/navigation bar-->
+        <header>
+            <div id="navbar" class="navbar">
+                <a class="navbar__logo-container" href="index.html">
+                    <div class="navbar__logo">
+                        <img src="images/ggLogo.png" alt="">
+                        <div class="navbar__title">
+                            <span class="primary-color__text">Gracious</span> <span class="secondary-color__text">Garments</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="navbar__link-container">
+                    <a class="navbar__link" href="index.php">Home</a>
+                    <a id="brandButton" class="navbar__link" onclick="toggleBrandMenu();">Brands</a>
+                    <a class="navbar__link navbar__link--is-active" href="contacts.html">Contacts</a>
+                </div>
+            </div>
+        </header>
+    </div>
+    <section id="brandMenuContainer" class="brand-menu-container"> <!--brand menu-->
+        <div id="brandMenu" class="brand-menu">
+            <div class="brand-holder">
+                <div>
+                    <img class="brand-logo" src="images/brandlogos/br1.png" alt="">
+                </div>
+                <div class="brand-text-area">
+                    <div class="brand-title primary-color__text">
+                        <span>Placeholder</span>
+                    </div>
+                    <div class="brand-des neutral-color__text">
+                        <span>Lorem ipsum dolor sit amet, consectetur adispiscing elit.Quisque diam ante,dapobus luctus lacinia vel,imperdiet a tortor. Mauris eget</span>
+                    </div>
+                </div>                        
+            </div>
+            <div class="brand-holder">
+                <div>
+                    <img class="brand-logo" src="images/brandlogos/br2.png" alt="">
+                </div>
+                <div class="brand-text-area">
+                    <div class="brand-title primary-color__text">
+                        <span>Placeholder</span>
+                    </div>
+                    <div class="brand-des neutral-color__text">
+                        <span>Lorem ipsum dolor sit amet, consectetur adispiscing elit.Quisque diam ante,dapobus luctus lacinia vel,imperdiet a tortor. Mauris eget</span>
+                    </div>
+                </div>                        
+            </div>
+            <div class="brand-holder">
+                <div>
+                    <img class="brand-logo" src="images/brandlogos/br3.png" alt="">
+                </div>
+                <div class="brand-text-area">
+                    <div class="brand-title primary-color__text">
+                        <span>Placeholder</span>
+                    </div>
+                    <div class="brand-des neutral-color__text">
+                        <span>Lorem ipsum dolor sit amet, consectetur adispiscing elit.Quisque diam ante,dapobus luctus lacinia vel,imperdiet a tortor. Mauris eget</span>
+                    </div>
+                </div>                        
+            </div>
+            <div class="brand-menu__close-button__container">
+                <button id="brandMenuCloseButton" class="brand-menu__close-button" onclick="closeBrandMenu();">
+                    <img src="icons/dismiss_32_regular.svg">
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="main-contact-section"> <!--main page contents-->
+        <div class="contact-info-area">
+            <div class="contact-info-area__logo-container">
+                <img src="images/ggLogo.png">
+                <div class="contact-info-area__logo-title">
+                    <span class="primary-color__text">Gracious</span> <span class="secondary-color__text">Garments</span>
+                </div>
+            </div>
+            <div class="contact-info-area__info-container">
+                <address>
+                    <div>
+                        <span class="primary-color__text">Address:</span><a class="neutral-color__text" href="" onclick="initMap();return false;"> 59 Huynh Thuc Khang St, Hanoi, Vietnam</a>
+                    </div>
+                    <div>
+                        <span class="primary-color__text">Email:</span> <a class="neutral-color__text" href="mailto:hieu1871998@gmail.com">hieu1871998@gmail.com</a>
+                    </div>
+                </address>
+            </div>
+        </div>
+        <div class="gmaps-area">
+            <div id="gmaps" class="gmaps">
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1_jKxZMHv4z8B6PIWB1sS6NIBTgPR_F4&callback=initMap&libraries=&v=weekly" async></script>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="scripts/index.js"></script>
+    <!--<section class="expand-left">
+        <div class="expand-content">
+            <div class="brand">
+                <div class="image">
+                    <img src="anh/img1.jpeg" alt="">
+                </div>
+                <div class="des">
+                    <img src="anh/BR_Logo1.png" alt="">
+                    <div class="brand-name">Brand</div>
+                    <span>Lorem ipsum dolor sit amet, consectetur adispiscing elit.Quisque diam ante,dapobus luctus lacinia vel,imperdiet a tortor. Mauris eget</span>
+                </div>
+            </div>
+            <div class="brand">
+                <div class="image">
+                    <img src="anh/img1.jpeg" alt="">
+                </div>
+                <div class="des">
+                    <img src="anh/BR_Logo2.png" alt="">
+                    <div class="brand-name">Brand</div>
+                    <span>Lorem ipsum dolor sit amet, consectetur adispiscing elit. Quisque diam ante,dapobus luctus lacinia vel,imperdiet a tortor. Mauris eget</span>
+                </div>
+            </div>
+            <div class="brand">
+                <div class="image">
+                    <img src="anh/img1.jpeg" alt="">
+                </div>
+                <div class="des">
+                    <img src="anh/BR_Logo3.png" alt="">
+                    <div class="brand-name">Brand</div>
+                    <span>Lorem ipsum dolor sit amet, consectetur adispiscing elit.Quisque diam ante,dapobus luctus lacinia vel,imperdiet a tortor. Mauris eget</span>
+                </div>
+            </div>
+        </div>
+        <div class="prev">
+            <i class="fas fa-chevron-circle-left"></i>
+        </div>
+    </section>-->
+</body>
+</html>
