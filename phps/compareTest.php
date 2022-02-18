@@ -50,14 +50,10 @@ foreach ($_SESSION['cart'] as $items) {
     <form action="" method="get" accept-charset="utf-8">
         <div class="row" style="margin-top: 50px">
             <div class="col-5">
-                <select class="form-control" id="id1" name="id1">
-                    <?php foreach ($result as $item) : ?>
-                        <option value="<?= $item['IDPRODUCTS'] ?>"><?= $item['PRODUCT_NAME'] ?></option>
-                        <?php  
-                        $idcompare1=$_SESSION['idcompare1'];
-                        ?> 
-                    <?php endforeach; ?>
-                </select>
+                <input type="text" name="id1">
+                <?php foreach ($result as $item) : ?>
+                        <option value="<?= $item['IDPRODUCTS']?>"><?= $item['PRODUCT_NAME'] ?></option>
+                <?php endforeach; ?>
             </div>
             <div class="col-5">
                 <select class="form-control" id="id2" name="id2">
