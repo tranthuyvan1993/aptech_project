@@ -62,16 +62,10 @@
                             <img class="cart-icon" src="icons/cart_24_regular.svg">
                             <span>Cart</span>
                         </a>
-                        <a class="navbar__link" href="phps/compare.php">
-                            <span>COMPARE</span>
-                        </a>
                     </nav>
                 </div>
             </div>
         </header>
-    </div>
-    <div>
-        
     </div>
     <section id="brandMenuContainer" class="brand-menu-container"> <!--brand menu-->
         <div id="brandMenu" class="brand-menu acrylic__light">

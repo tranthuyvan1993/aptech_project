@@ -35,7 +35,7 @@ $admin = (isset($_SESSION['admin'])) ? $_SESSION['admin'] : [];
 ?>
 			</ul>
 		</div>
-		<div class="jumbotron text-center" style="">
+		<div class="jumbotron text-center">
 			<h1>Catalogy Management</h1>
 			<p>Hope you have a wonderful shopping time!</p>
 		</div>

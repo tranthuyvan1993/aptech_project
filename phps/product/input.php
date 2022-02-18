@@ -1,82 +1,82 @@
 <?php
-require_once('../database/database.php');
-// $fullname = $age = $address = '';
-$proname = $proprice = $proimg= $idbrand =$prodesc= $created_at = $updated_at='';
-// khởi tạo các giá trị bằng rỗng khi load trang
+    require_once('../database/database.php');
+    // $fullname = $age = $address = '';
+    $proname = $proprice = $proimg= $idbrand =$prodesc= $created_at = $updated_at='';
+    // khởi tạo các giá trị bằng rỗng khi load trang
 
-if (!empty($_POST)) {
-	date_default_timezone_set('Asia/Bangkok'); 
-		//set time theo múi giờ Việt Nam, nếu không set là nó lưu theo giờ Mỹ Đình
-		$created_at = $updated_at = date('Y-m-d H:i:s');
-		// echo $created_at; echo $updated_at; die();
-	if (isset($_POST['submit'])) {
-		//đoạn này là xử lý file upload ảnh.
-		$proimg=basename($_FILES['img']['name']);
-		// var_dump($proimg); die();
-		// lấy ra tên của ảnh dựa vào input "img"
-		echo "ten anh: " .$proimg;
-		$target_dir = "img/"; //file lưu ảnh
-		$target_file = $target_dir.$proimg; //lưu tên ảnh vào trong file để lưu
-		move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
-		// khi upload 1 file ảnh từ 1 ổ bất kỳ nó sẽ lưu lại file ảnh đó trong thư mục img.
-		$id =$_POST['id'];
-	}
-	if (isset($_POST['proname'])) {
-		$proname =$_POST['proname'];
-		$proname = str_replace("'", "\\'", $proname);
-	}
-	if (isset($_POST['price'])) {
-		$proprice =$_POST['price'];
-		$proprice = str_replace("'", "\\'", $proprice); //str_replace là để tránh lỗi SQL injection
-	}
-	if (isset($_POST['idbrand'])) {
-		$idbrand =$_POST['idbrand'];
-		$idbrand = str_replace("'", "\\'", $idbrand);
-	}
-	if (isset($_POST['desc'])) {
-		$prodesc =$_POST['desc'];
-		$prodesc = str_replace("'", "\\'", $prodesc);
-	}
-	if ($id!='') {
-		if($_FILES['img']['size'] == 0) {
-		$query = "update products set PRODUCT_NAME='$proname',PRICE='$proprice',IDBRAND='$idbrand',`desc`='$prodesc',updated_at='$updated_at' where IDPRODUCTS='$id'";
-		// var_dump($query);die();
-		//update student
-		}
-		else{
-			$query = "update products set PRODUCT_NAME='$proname',PRICE='$proprice',IMG='$proimg',IDBRAND='$idbrand',`desc`='$prodesc',updated_at='$updated_at' where IDPRODUCTS='$id'";
-		// update nhiều giá trị thì dùng dấu ,; - update sản phẩm khi admin edit;
-		}
-	} 
-	else{
-		$query = "insert into products(PRODUCT_NAME,PRICE,IMG,`DESC`,IDBRAND,created_at,updated_at) value('$proname','$proprice','$proimg','$prodesc','$idbrand','$created_at','$updated_at')";
-		// insert dữ liệu mới
-	}
-	// echo $query;
-	// die();
-	if (executeRe($query)) {
-		header('location: index.php');
-	}
-	else{
-		$proname = $proprice = $proimg= $idbrand =$prodesc='';
-	}
-	// Nếu insert hoặc update thành công thì chuyển sang trang index còn không thì làm '' lại dữ liệu
-}
-$id='';
-if (isset($_GET['id'])) {
-	$id    = $_GET['id'];
-	$query = 'select * from products where IDPRODUCTS='.$id;
-	$productlist = executeResult($query);
-	if ($productlist!=null && count($productlist)>0) {
-		$prolist = $productlist[0];
-		$proname = $prolist['PRODUCT_NAME'];
-		$proprice = $prolist['PRICE'];
-		$proimg= $prolist['IMG'];
-		$prodesc= $prolist['DESC'];
-		$idbrand= $prolist['IDBRAND'];
-		// đoạn này lấy ra giá trị đã tồn lại trong database để khi edit nó sẽ hiện lên giá trị đó
-	}
-}
+    if (!empty($_POST)) {
+        date_default_timezone_set('Asia/Bangkok'); 
+            //set time theo múi giờ Việt Nam, nếu không set là nó lưu theo giờ Mỹ Đình
+            $created_at = $updated_at = date('Y-m-d H:i:s');
+            // echo $created_at; echo $updated_at; die();
+        if (isset($_POST['submit'])) {
+            //đoạn này là xử lý file upload ảnh.
+            $proimg=basename($_FILES['img']['name']);
+            // var_dump($proimg); die();
+            // lấy ra tên của ảnh dựa vào input "img"
+            echo "ten anh: " .$proimg;
+            $target_dir = "img/"; //file lưu ảnh
+            $target_file = $target_dir.$proimg; //lưu tên ảnh vào trong file để lưu
+            move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
+            // khi upload 1 file ảnh từ 1 ổ bất kỳ nó sẽ lưu lại file ảnh đó trong thư mục img.
+            $id =$_POST['id'];
+        }
+        if (isset($_POST['proname'])) {
+            $proname =$_POST['proname'];
+            $proname = str_replace("'", "\\'", $proname);
+        }
+        if (isset($_POST['price'])) {
+            $proprice =$_POST['price'];
+            $proprice = str_replace("'", "\\'", $proprice); //str_replace là để tránh lỗi SQL injection
+        }
+        if (isset($_POST['idbrand'])) {
+            $idbrand =$_POST['idbrand'];
+            $idbrand = str_replace("'", "\\'", $idbrand);
+        }
+        if (isset($_POST['desc'])) {
+            $prodesc =$_POST['desc'];
+            $prodesc = str_replace("'", "\\'", $prodesc);
+        }
+        if ($id!='') {
+            if($_FILES['img']['size'] == 0) {
+            $query = "update products set PRODUCT_NAME='$proname',PRICE='$proprice',IDBRAND='$idbrand',`desc`='$prodesc',updated_at='$updated_at' where IDPRODUCTS='$id'";
+            // var_dump($query);die();
+            //update student
+            }
+            else{
+                $query = "update products set PRODUCT_NAME='$proname',PRICE='$proprice',IMG='$proimg',IDBRAND='$idbrand',`desc`='$prodesc',updated_at='$updated_at' where IDPRODUCTS='$id'";
+            // update nhiều giá trị thì dùng dấu ,; - update sản phẩm khi admin edit;
+            }
+        } 
+        else{
+            $query = "insert into products(PRODUCT_NAME,PRICE,IMG,`DESC`,IDBRAND,created_at,updated_at) value('$proname','$proprice','$proimg','$prodesc','$idbrand','$created_at','$updated_at')";
+            // insert dữ liệu mới
+        }
+        // echo $query;
+        // die();
+        if (executeRe($query)) {
+            header('location: index.php');
+        }
+        else{
+            $proname = $proprice = $proimg= $idbrand =$prodesc='';
+        }
+        // Nếu insert hoặc update thành công thì chuyển sang trang index còn không thì làm '' lại dữ liệu
+    }
+    $id='';
+    if (isset($_GET['id'])) {
+        $id    = $_GET['id'];
+        $query = 'select * from products where IDPRODUCTS='.$id;
+        $productlist = executeResult($query);
+        if ($productlist!=null && count($productlist)>0) {
+            $prolist = $productlist[0];
+            $proname = $prolist['PRODUCT_NAME'];
+            $proprice = $prolist['PRICE'];
+            $proimg= $prolist['IMG'];
+            $prodesc= $prolist['DESC'];
+            $idbrand= $prolist['IDBRAND'];
+            // đoạn này lấy ra giá trị đã tồn lại trong database để khi edit nó sẽ hiện lên giá trị đó
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

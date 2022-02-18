@@ -66,8 +66,8 @@
                             <a href="phps/showproducts.php?id=' . $product['IDPRODUCTS'] . '">' . strtoupper($product['PRODUCT_NAME']) . '</a>
                         </div>
                         <div class="product-brand">
-                            <a href="phps/catalogy/showbrands.php?id=' . $product['IDBRAND'] . '">' . strtoupper($product['BRAND_NAME']) . '</a>
-                        </div>
+                                <a href="phps/catalogy/showbrands.php?id=' . $product['IDBRAND'] . '">' . strtoupper($product['BRAND_NAME']) . '</a>
+                            </div>
                         <div class="product-price">
                             <span>' . $formatnum1 . ' VND</span>
                         </div>
@@ -94,13 +94,12 @@
 ?>
 <script type="text/javascript">
     function addCart(IDPRODUCTS, num){
-    console.log(IDPRODUCTS + "," + num)
-    $.post('phps/mvc/api.php',{
-      'action': 'cart',
-      'IDPRODUCTS': IDPRODUCTS,
-      'num': num
-    }, function(data){
-      location.reload()
-    })
-  }
+        $.post('phps/mvc/api.php',{
+        'action': 'cart',
+        'IDPRODUCTS': IDPRODUCTS,
+        'num': num
+        }, function(data){
+        location.reload()
+        })
+    }
 </script>
